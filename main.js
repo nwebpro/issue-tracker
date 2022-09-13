@@ -24,6 +24,7 @@ function submitIssue(e) {
 const closeIssue = id => {
   const issues = JSON.parse(localStorage.getItem('issues'));
   const currentIssue = issues.find(issue => parseInt(issue.id) === id);
+  currentIssue.description = currentIssue.description.strike();
   currentIssue.status = 'Closed';
   localStorage.setItem('issues', JSON.stringify(issues));
   fetchIssues();
